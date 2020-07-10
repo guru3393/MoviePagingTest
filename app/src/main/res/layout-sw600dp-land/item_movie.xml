@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data class="UpcomingMovieDataBinding">
+        <variable
+            name="upcomingMovie"
+            type="com.guru.moviepagingtest.upcoming_movies.SearchMovie" />
+
+        <variable
+            name="onUpcomingMovieClickListener"
+            type="com.guru.moviepagingtest.upcoming_movies.SearchMoviesAdapter.OnUpcomingMovieClickListener" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="200dp"
+        android:layout_height="match_parent"
+        android:layout_margin="2dp"
+        android:onClick="@{(v) -> onUpcomingMovieClickListener.onUpcomingMovieViewClick(upcomingMovie)}">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/poster_image_view"
+                android:posterPath="@{upcomingMovie.posterPath}"
+                android:contentDescription="@null"
+                android:scaleType="centerCrop" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/title_text_view"
+                android:text="@{upcomingMovie.title}"
+                android:textColor="@android:color/white"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="4dp"
+                android:layout_marginBottom="4dp"
+                android:ellipsize="end"
+                android:maxLines="2"/>
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+</layout>
